@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service ChatService{
+	rpc Join(Name) returns (Name);
+	rpc GetGroup(GetGroupRequest) returns (stream Name);
+	rpc Chat(stream Msg) returns (stream Msg);
+}
+
+message GetGroupRequest {}
+
+message Name {
+	string Name = 1;
+}
+
+message Msg {
+	string sender = 1;
+	string msg = 2;
+}
